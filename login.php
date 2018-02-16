@@ -1,86 +1,122 @@
-<!DOCTYPE HTML>
-<html>
+
+<?php
+session_start();
+include('pdo.php');
+
+if(isset($_POST['email'], $_POST['password'])){
+
+  $email = htmlentities(trim($_POST['email']));
+  $password  = htmlentities(trim($_POST['password']));
+
+  if($email != "" && $password != ""){
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $_SESSION['error_message'] = "You entered an invalid email format."; 
+    } else {
+      $query = $pdo->prepare("SELECT * FROM login WHERE email = ? AND password = ?");
+      $query->bindValue(1, $email);
+      $query->bindValue(2, $password);
+      $query->execute();
+      $value = $query->fetch(PDO::FETCH_OBJ);
+
+      if(($query->rowCount() > 0) && ( password_verify( $passd, $result['password'] ) ) ) {
+        if($query['user_type']=="applicant") {
+          session_start();
+          $_SESSION['login_id'] = $value->login_id;
+          $_SESSION['user_type'] = $value->user_type;
+          header('Location:applicant/applicant.php');
+          die();
+        } elseif ($query['user_type']=="employer") {
+         session_start();
+         $_SESSION['login_id'] = $value->login_id;
+         $_SESSION['user_type'] = $value->user_type;
+         $_SESSION['status'] = $value->status;
+         header('Location:employer/employer.php');
+         die();
+       } else {
+        $_SESSION['error_message'] = "Please enter a valid email and password combination.";
+      }
+    }
+  }
+} 
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Online Job Application </title>
-    <script src="js/jquery-1.12.0.min.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link href="css/home.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-   <!--  <script type="application/javascript">
-        $(document).ready(function(){
-                // Add smooth scrolling to all links in navbar + footer link
-                $(".navbar a, footer a[href='#insidenav']").on('click', function(event) {
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jennelyn Urot Peromingan</title>
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <link href="css/signin.css" rel="stylesheet">
+  <script src="js/jquery-1.12.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 900, function(){
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                });
-                $(window).scroll(function() {
-                    $(".slideanim").each(function(){
-                        var pos = $(this).offset().top;
-
-                        var winTop = $(window).scrollTop();
-                        if (pos < winTop + 600) {
-                            $(this).addClass("slide");
-                        }
-                    });
-                });
-            })
-        </script> -->
-    </head>
-
-    <!--- -------------------------------------------------------------------------------------------------- -->
-    <body id="indexbody" data-spy="scroll" data-target=".navbar" data-offset="60">
- <nav class="navbar" id="insidenav">
-          <div class="container-fluid">
-            <ul class="nav navbar-nav">
-              <li><a href="index.php">Home</a></li>
-              <li><a href="#recent"">Recent Jobs</a></li>
-              <li><a href="#jobseeker">Job Seeker</a></li>
-              <li><a href="#">Employer</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="glyphicon glyphicon-user"></span> Register <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="applicant.php">Jobseeker</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="employer.php">Employer</a></li>
-                </ul>
-            </li>
-            <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+  <?php
+  if(isset($_GET['msg']) && ($_GET['msg']=="failed")){
+    ?>
+    <script type='text/javascript'>alert("Login Failed: Invalid Username or Password!");</script>
+    <?php
+  }
+  else if(isset($_GET['msg']) && ($_GET['msg']=="registered"))
+  {
+    ?>
+    <script type='text/javascript'>alert("Successfully registered, Please login now!");</script>
+    <?php
+  }
+  else if(isset($_GET['msg']) && ($_GET['msg']=='please_login'))
+  {
+    ?>
+    <script type="text/javascript">alert("Please Login First to access your profile!");</script>
+    <?php
+  }
+  ?>
+</head>
+<body>
+  <nav class="navbar" id="insidenav">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.php">Job Portal</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Login</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="applicant/register_user.php">Jobseeker</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="employer/register_emp.php">Company</a></li>
         </ul>
-    </div>
+      </li>
+    </ul>
+  </div>
 </nav>
-        
-<div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
+  <div class="container-fluid" id="main1">
     <div class="jumbotron text-center" id="searchjum">
-        <p>Search for Jobs</p>
-        <form class="form-inline" id="homesearch">
-            <input type="text" class="form-control" size="50" placeholder="Enter your search keyword" name="keyword" id="keyword">
-            <button type="button" onclick="search()" class="btn btn-lg " style="color: black"><span class="glyphicon glyphicon-search"></span> Search</button>
-        </form>
+      <form class="form-signin" action="login.php" method="post">
+       <label for="inputEmail" class="sr-only">Email address</label>
+       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+       <label for="inputPassword" class="sr-only">Password</label>
+       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+     </form>
+   </div>
+ </div>
+ <div class="container col-sm-10 pull-right" >
+  <div class="row">
+    <div class="askreg">
+      <div class="col-lg-3">
+        <br>
+      </div>
     </div>
-</div> <!-- jumbotron -->
+  </div>
+</div>
 </body>
 </html>
