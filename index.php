@@ -7,24 +7,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Online Job Application </title>
+    <title> Jennelyn Urot Peromingan </title>
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/search.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link href="css/home.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     </head>
-
-    <!--- -------------------------------------------------------------------------------------------------- -->
     <body id="indexbody" data-spy="scroll" data-target=".navbar" data-offset="60">
   <nav class="navbar" id="insidenav">
           <div class="container-fluid">
             <ul class="nav navbar-nav">
               <li><a class="navbar-brand" href="index.php">Home</a></li>
-              <li><a href="#recent"">Recent Jobs</a></li>
-              <li><a href="#jobseeker">Job Seeker</a></li>
-              <li><a href="#">Employer</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <!-- <li><a href="#recent"">Recent Jobs</a></li>
+              <li><a href="#jobseeker">Applicant</a></li>
+              <li><a href="#">Employer</a></li> -->
+             <!--  <li><a href="#contact">Contact Us</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">

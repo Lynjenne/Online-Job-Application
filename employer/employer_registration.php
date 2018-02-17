@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
 
     $email_address = htmlentities(trim($_POST['email_address']));
     $password = htmlentities(trim($_POST['password']));
-    $hash = password_hash($password, PASSWORD_DEFAULT);
+    // $hash = password_hash($password, PASSWORD_DEFAULT);
     $user_type = "employer";
     $status = 0;
 
@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
 
     $queryLogin = $connect->prepare('INSERT INTO login (email_address, password, user_type, status) VALUES (?, ?, ?, ?)');
     $queryLogin->bindValue(1, $email_address);
-    $queryLogin->bindValue(2, $hash);
+    $queryLogin->bindValue(2, $password);
     $queryLogin->bindValue(3, $user_type);
     $queryLogin->bindValue(4, $status);
     $queryLogin->execute();
@@ -119,12 +119,12 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
 
   <!-- navigation bar starts here -->
   <nav class="navbar" id="insidenav">
-    <div class="container-fluid">
+    <div class="container-fluid"> 
       <div class="navbar-header">
-        <a class="navbar-brand" href="../index.php">Job Portal</a>
+        <a class="navbar-brand" href="../index.php">Home</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Employer Registration</a></li>
+        <li><a href="#">Employer Registration</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Online Job Application </title>
+    <title> Jennelyn Urot Peromingan</title>
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/search.js"></script>
     <script src="js/bootstrap.min.js"></script>
