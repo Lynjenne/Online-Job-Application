@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
 
     $email_address = htmlentities(trim($_POST['email_address']));
     $password = htmlentities(trim($_POST['password']));
-    // $hash = password_hash($password, PASSWORD_DEFAULT);
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     $user_type = "employer";
     $status = 0;
 
@@ -29,13 +29,13 @@ if(isset($_POST['submit']))
 
     $queryLogin = $connect->prepare('INSERT INTO login (email_address, password, user_type, status) VALUES (?, ?, ?, ?)');
     $queryLogin->bindValue(1, $email_address);
-    $queryLogin->bindValue(2, $password);
+    $queryLogin->bindValue(2, $hash);
     $queryLogin->bindValue(3, $user_type);
     $queryLogin->bindValue(4, $status);
     $queryLogin->execute();
 
     $query = $pdo->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
-    $query->execute(array(':email_address' => $email_address) );
+    $query->execute(array(':email_address' => $email_address));
     $value = $query->fetch(PDO::FETCH_OBJ);
     echo $value->login_id;
 
@@ -121,7 +121,7 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
   <nav class="navbar" id="insidenav">
     <div class="container-fluid"> 
       <div class="navbar-header">
-        <a class="navbar-brand" href="../index.php">Home</a>
+        <a class="navbar-brand" href="../index.php">Job Finder</a>
       </div>
       <ul class="nav navbar-nav">
         <li><a href="#">Employer Registration</a></li>

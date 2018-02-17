@@ -85,7 +85,7 @@
     <nav class="navbar" id="insidenav">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Home</a>
+                <a class="navbar-brand" href="../index.php">Job Finder</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#">Applicant Registrastion</a></li>
