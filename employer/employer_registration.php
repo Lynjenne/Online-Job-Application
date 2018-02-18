@@ -3,9 +3,9 @@ include ('../pdo.php');
 
 if(isset($_POST['submit']))
 {
-  $servername = "127.0.0.1";
+  $servername = "35.224.141.246";
   $username = "root";
-  $password = "";
+  $password = "peromingan";
   $dbname = "online_job";
   try {
 

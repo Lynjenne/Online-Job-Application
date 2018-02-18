@@ -3,9 +3,9 @@
    if(isset($_POST['submit']))
    {
     echo " before sa try catch";
-      $servername = "127.0.0.1";
+      $servername = "35.224.141.246";
       $username = "root";
-      $password = "";
+      $password = "peromingan";
       $dbname = "online_job";
       try {
         $connect = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
