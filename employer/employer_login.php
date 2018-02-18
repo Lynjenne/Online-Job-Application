@@ -79,11 +79,8 @@ if (!empty($_POST['submit']))
   <div class="container-fluid" id="main1">
     <div class="jumbotron text-center" id="searchjum">
       <form class="form-signin" action="" method="post">
-        <?php if(isset($_SESSION['error_message'])){ ?>
         <div class="error-message">
-        <?php echo htmlentities($_SESSION['error_message']); ?>
         </div>
-        <?php $_SESSION['error_message'] = null; } ?>
        <label for="inputEmail" class="sr-only">Email address</label>
        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email_address">
        <label for="inputPassword" class="sr-only">Password</label>
