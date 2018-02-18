@@ -33,7 +33,7 @@ if(isset($_POST['submit']))
     $queryLogin->bindValue(4, $status);
     $queryLogin->execute();
 
-    $query = $pdo->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
+    $query = $connect->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
     $query->execute(array(':email_address' => $email_address));
     $data = $query->fetch(PDO::FETCH_OBJ);
 
@@ -47,7 +47,6 @@ if(isset($_POST['submit']))
     $pdoQueryEmployer->bindValue(6, $employer_phone);
     $pdoQueryEmployer->bindValue(7, $employer_profile);
     $pdoQueryEmployer->bindValue(8, $employer_contactperson);
-
     $pdoQueryEmployer->execute();
 
     if($queryLogin && $pdoQueryEmployer)
