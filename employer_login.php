@@ -80,7 +80,7 @@ echo " Success 5";
           <nav class="navbar" id="insidenav">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Home</a>
+                <a class="navbar-brand" href="index.php">Home</a>
               </div>
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Login</a></li>
@@ -89,7 +89,7 @@ echo " Success 5";
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="applicant/applicant_registration.php">Applicant</a></li>
+                    <li><a href="applicant_registration.php">Applicant</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="employer_registration.php">Employer</a></li>
                   </ul>
@@ -97,7 +97,7 @@ echo " Success 5";
                  <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
                  <ul class="dropdown-menu">
-                    <li><a href="applicant/applicant_login.php">Applicant</a></li>
+                    <li><a href="applicant_login.php">Applicant</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="employer_login.php">Employer</a></li>
                 </ul>

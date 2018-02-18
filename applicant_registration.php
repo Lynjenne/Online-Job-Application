@@ -84,7 +84,7 @@
     <nav class="navbar" id="insidenav">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Job Finder</a>
+                <a class="navbar-brand" href="index.php">Job Finder</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="#">Applicant Registrastion</a></li>
@@ -95,7 +95,7 @@
         <ul class="dropdown-menu">
           <li><a href="applicant_registration.php">Applicant</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="employer/employer_registration.php">Employer</a></li>
+          <li><a href="employer_registration.php">Employer</a></li>
         </ul>
       </li>
        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -103,7 +103,7 @@
                  <ul class="dropdown-menu">
                     <li><a href="applicant_login.php">Applicant</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="employer/employer_login.php">Employer</a></li>
+                    <li><a href="employer_login.php">Employer</a></li>
                 </ul>
        </li>
     </ul>
