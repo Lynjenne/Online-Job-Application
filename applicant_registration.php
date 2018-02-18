@@ -34,7 +34,8 @@
         $query = $pdo->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
         $query->execute(array(':email_address' => $email_address) );
         $value = $query->fetch(PDO::FETCH_OBJ);
-        echo $value->login_id;
+        $value->login_id;
+        echo $value;
 
         $pdoQueryApplicant = $connect->prepare('INSERT INTO applicant (login_id, applicant_name, applicant_phone, applicant_address, applicant_experience, applicant_skills, applicant_basic_education, applicant_master_edu) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
         $pdoQueryApplicant->bindValue(1, $value->login_id);
@@ -45,7 +46,6 @@
         $pdoQueryApplicant->bindValue(6, $applicant_skills);
         $pdoQueryApplicant->bindValue(7, $applicant_basic_education);
         $pdoQueryApplicant->bindValue(8, $applicant_master_edu);
-
         $pdoQueryApplicant->execute();
 
         if($queryLogin && $pdoQueryApplicant)
