@@ -94,6 +94,14 @@ echo " Success 5";
           <li><a href="employer/employer_registration.php">Company</a></li>
         </ul>
       </li>
+       <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                    <li><a href="applicant/applicant_login.php">Applicant</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="employer/employer_login.php">Employer</a></li>
+                </ul>
+            </li>
     </ul>
   </div>
 </nav>
