@@ -52,7 +52,7 @@ if(isset($_POST['submit']))
 
     if($queryLogin && $pdoQueryEmployer)
     {
-     header('location:employer_login.php?msg=registered');
+     header('location:employer_login.php');
      die();
    }
    else {
@@ -126,8 +126,23 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
         <li><a href="#">Employer Registration</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="applicant/applicant_registration.php">Applicant</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="employer_registration.php">Employer</a></li>
+                  </ul>
+                </li>
+                 <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                    <li><a href="applicant/applicant_login.php">Applicant</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="employer_login.php">Employer</a></li>
+                </ul>
+                </li>
+         </ul>
     </div>
   </nav>
   <!-- navigation bar ends here -->
