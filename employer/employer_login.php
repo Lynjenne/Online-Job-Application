@@ -91,7 +91,7 @@ echo " Success 5";
                   <ul class="dropdown-menu">
                     <li><a href="applicant/applicant_registration.php">Applicant</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="employer/employer_registration.php">Company</a></li>
+                    <li><a href="employer/employer_registration.php">Employer</a></li>
                   </ul>
                 </li>
                  <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
