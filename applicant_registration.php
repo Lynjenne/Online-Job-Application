@@ -31,12 +31,13 @@
         $queryLogin->bindValue(4, $status);
         $queryLogin->execute();
 
-        $query = $pdo->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
+        $query = $connect->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
         $query->execute(array(':email_address' => $email_address));
-        $value = $query->fetchColumn();
+        $value = $query->fetch(PDO::FETCH_OBJ);
+        $login_id = $connect->lastInsertId();
 
         $pdoQueryApplicant = $connect->prepare('INSERT INTO applicant (login_id, applicant_name, applicant_phone, applicant_address, applicant_experience, applicant_skills, applicant_basic_education, applicant_master_edu) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-        $pdoQueryApplicant->bindValue(1, $value->login_id);
+        $pdoQueryApplicant->bindValue(1, $login_id);
         $pdoQueryApplicant->bindValue(2, $applicant_name);
         $pdoQueryApplicant->bindValue(3, $applicant_phone);
         $pdoQueryApplicant->bindValue(4, $applicant_address);
