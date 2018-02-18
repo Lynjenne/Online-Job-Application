@@ -83,7 +83,7 @@ echo " Success 5";
       <a class="navbar-brand" href="index.php">Home</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Login</a></li>
+      <li><a href="#">Login</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -91,7 +91,7 @@ echo " Success 5";
         <ul class="dropdown-menu">
           <li><a href="applicant/applicant_registration.php">Applicant</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="employer/employer_registration.php">Employer</a></li>
+          <li><a href="../employer/employer_registration.php">Employer</a></li>
         </ul>
       </li>
        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -99,7 +99,7 @@ echo " Success 5";
                  <ul class="dropdown-menu">
                     <li><a href="applicant/applicant_login.php">Applicant</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="employer/employer_login.php">Employer</a></li>
+                    <li><a href="../employer/employer_login.php">Employer</a></li>
                 </ul>
        </li>
     </ul>
