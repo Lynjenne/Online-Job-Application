@@ -82,37 +82,6 @@ if(isset($_POST['submit']))
   <script src="../js/jquery-1.12.0.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../location/location.js"></script>
-  <script>
-   function checkForm() {
-// Fetching values from all input fields and storing them in variables.
-var email_address = document.getElementById("emailerror").innerHTML;
-var password = document.getElementById("pass1error").innerHTML;
-var pass2 = document.getElementById("pass2error").innerHTML;
-var employer_name = document.getElementById("comperror").innerHTML;
-var employer_address = document.getElementById("addrerror").innerHTML;
-var person = document.getElementById("personerror").innerHTML;
-var employer_phone = document.getElementById("pherror").innerHTML;
-var employer_profile=document.getElementById("abouterror").innerHTML;
-var p1=document.getElementById("pass1").value;
-var p2=document.getElementById("pass2").value;
-if (p1 != p2) {
-  document.getElementById("pass2error").innerHTML="Password Donot Match" ;
-}
-else
-{
-  document.getElementById("pass2error").innerHTML="" ;
-}
-
-if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" && employer_address == "" && person == "" && employer_phone == "" && employer_profile == "") {
-
-   //document.getElementById("regcomp").submit();
-   return true;
- } else {
-  alert("Fill in with correct information");
-  return false;
-}
-}
-</script>
 </head>
 <body>
 
@@ -149,29 +118,27 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
 
   <!-- container div for page contents -->
   <div class="container">
-    <form role="form" id="regcomp" onsubmit="return checkForm()" class="form-horizontal" method="post" action="employer_registration.php">
+    <form role="form" id="regcomp" class="form-horizontal" method="post" action="employer_registration.php">
       <h3 class="h3style"> Company Login details </h3>
       <div class="form-group">
         <div class="col-sm-4">
-         <input type="email" required placeholder="Email Address" class="form-control" name="email_address" id="email"
-         onblur="validate('email','emailerror',this.value)">
+         <input type="email" required placeholder="Email Address" class="form-control" name="email_address">
        </div>
-       <label class="error" id="emailerror"></label>
+       <label class="error"></label>
      </div>
 
      <div class="form-group">
       <div class="col-sm-4">  
-        <input type ="password"  placeholder="Password" name="password" id="pass1" class="form-control"
-        required onblur="validate('password','pass1error',this.value)">
+        <input type ="password"  placeholder="Password" name="password" id="pass1" class="form-control">
       </div>
-      <label class="error" id="pass1error"></label>
+      <label class="error"></label>
     </div>
 
     <div class="form-group">
       <div class="col-sm-4">
         <input type ="password"  placeholder="Confirm Password" name="pass2" id="pass2" class="form-control" required>
       </div>
-      <label class="error" id="pass2error"></label>
+      <label class="error"></label>
     </div>
 
     <div class="page-header"></div>
@@ -179,10 +146,9 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
 
     <div class="form-group">
       <div class="col-sm-5"> 
-        <input type ="text" class="form-control" name="employer_name" id="compname" placeholder="Company Name"
-        required onblur="validate('company','comperror',this.value)">
+        <input type ="text" class="form-control" name="employer_name" id="compname" placeholder="Company Name">
       </div>
-      <label class="error" id="comperror"></label>
+      <label class="error"></label>
     </div>
 
     <div class="form-group">
@@ -190,7 +156,7 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
         <label class="radio-inline"><input type="radio" name="employer_type" id="type1" value="Company">Company</label>
         <label class="radio-inline"><input type="radio" name="employer_type" id="type2" value="Consultant">Consultant</label>
       </div>
-      <label class="error" id="typeerror"></label>
+      <label class="error"></label>
     </div>
 
     <div class="form-group">
@@ -255,34 +221,31 @@ if(email_address == "" && password == "" && pass2 == "" &&  employer_name == "" 
           <option value="Wellness/Fitness/Sports">Wellness/Fitness/Sports</option>
         </select>
       </div>
-      <label class="error" id="inderror"></label>
+      <label class="error"></label>
     </div>
 
     <div class="form-group">
-      <div class="col-sm-5"><textarea id="addr" rows="5" placeholder="Address" name="employer_address" class="form-control" required 
-        onblur="validate('address','addrerror',this.value)"></textarea>
+      <div class="col-sm-5"><textarea id="addr" rows="5" placeholder="Address" name="employer_address" class="form-control"></textarea>
       </div>
-      <label class="error" id="addrerror"></label>
+      <label class="error"></label>
     </div>
     <div class="form-group">
       <div class="col-sm-4">
-        <input type="text"class="form-control" placeholder="Contact Person:" id="person" name="employer_contactperson"
-        required onblur="validate('username','personerror',this.value)">
-        <label class="error" id="personerror"></label>
+        <input type="text"class="form-control" placeholder="Contact Person:" id="person" name="employer_contactperson">
+        <label class="error"></label>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-4">
-        <input type="text"class="form-control" placeholder="Contact Number" id="phone" name="employer_phone"
-        required onblur="validate('mobilenum','pherror',this.value)">
-        <label class="error" id="pherror"></label>
+        <input type="text"class="form-control" placeholder="Contact Number" id="phone" name="employer_phone">
+        <label class="error"></label>
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-5">
-        <textarea placeholder="Describe your company" name="employer_profile" class="form-control" rows="5" required onblur="validate('longtext','abouterror',this.value)"></textarea>
-        <label class="error" id="abouterror"></label>
+        <textarea placeholder="Describe your company" name="employer_profile" class="form-control" rows="5"></textarea>
+        <label class="error"></label>
       </div>
     </div>
     <div class="page-header"> </div>
