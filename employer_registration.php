@@ -1,5 +1,5 @@
 <?php
-include ('../pdo.php');
+include ('pdo.php');
 
 if(isset($_POST['submit']))
 {
@@ -35,11 +35,11 @@ if(isset($_POST['submit']))
 
     $query = $pdo->prepare("SELECT login_id FROM login WHERE email_address = :email_address");
     $query->execute(array(':email_address' => $email_address));
-    $value = $query->fetch(PDO::FETCH_OBJ);
-    echo $value->login_id;
+    $data = $query->fetch(PDO::FETCH_OBJ);
+
 
     $pdoQueryEmployer = $connect->prepare('INSERT INTO employer (login_id, employer_name, employer_type, employer_industry, employer_address, employer_phone, employer_profile, employer_contact_person) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-    $pdoQueryEmployer->bindValue(1, $value->login_id);
+    $pdoQueryEmployer->bindValue(1, $data->login_id);
     $pdoQueryEmployer->bindValue(2, $employer_name);
     $pdoQueryEmployer->bindValue(3, $employer_type);
     $pdoQueryEmployer->bindValue(4, $employer_industry);
