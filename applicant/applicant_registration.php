@@ -2,7 +2,6 @@
    include ('../pdo.php');
    if(isset($_POST['submit']))
    {
-    echo " before sa try catch";
       $servername = "35.224.141.246";
       $username = "root";
       $password = "peromingan";
@@ -13,7 +12,7 @@
 
         $email_address = htmlentities(trim($_POST['email_address']));
         $password = htmlentities(trim($_POST['password']));
-        // $hash = password_hash($password, PASSWORD_DEFAULT);
+        $hash = password_hash($password, PASSWORD_DEFAULT);
         $user_type = "applicant";
         $status = 1;
 
@@ -27,7 +26,7 @@
 
         $queryLogin = $connect->prepare('INSERT INTO login (email_address, password, user_type, status) VALUES (?, ?, ?, ?)');
         $queryLogin->bindValue(1, $email_address);
-        $queryLogin->bindValue(2, $password);
+        $queryLogin->bindValue(2, $hash);
         $queryLogin->bindValue(3, $user_type);
         $queryLogin->bindValue(4, $status);
         $queryLogin->execute();
@@ -51,7 +50,7 @@
 
         if($queryLogin && $pdoQueryApplicant)
         {
-           header('location:../login.php?msg=registered');
+           header('location:applicant_login.php?msg=registered');
            die();
        }
        else {
@@ -76,7 +75,7 @@
   <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
   <link href="../css/main.css" rel="stylesheet">
   <link href="../css/applicant.css" rel="stylesheet">
-  <script type="text/javascript" src="../js/validate.js"></script>
+  <script src="../js/validate.js" type="text/javascript"></script>
   <script src="../js/jquery-1.12.0.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>  
   <script src="../location/location.js"></script>  

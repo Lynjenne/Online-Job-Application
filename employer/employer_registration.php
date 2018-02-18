@@ -26,7 +26,6 @@ if(isset($_POST['submit']))
     $employer_profile = $_POST['employer_profile'];
     $employer_contactperson = $_POST['employer_contactperson'];
 
-
     $queryLogin = $connect->prepare('INSERT INTO login (email_address, password, user_type, status) VALUES (?, ?, ?, ?)');
     $queryLogin->bindValue(1, $email_address);
     $queryLogin->bindValue(2, $hash);
@@ -53,7 +52,7 @@ if(isset($_POST['submit']))
 
     if($queryLogin && $pdoQueryEmployer)
     {
-     header('location:../login.php?msg=registered');
+     header('location:employer_login.php?msg=registered');
      die();
    }
    else {
