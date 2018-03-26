@@ -36,8 +36,8 @@
         $value = $query->fetch(PDO::FETCH_OBJ);
         $login_id = $connect->lastInsertId();
 
-        $pdoQueryApplicant = $connect->prepare('INSERT INTO applicant (lastInsertId, applicant_name, applicant_phone, applicant_address, applicant_experience, applicant_skills, applicant_basic_education, applicant_master_edu) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-        $pdoQueryApplicant->bindValue(1, $lastInsertId);
+        $pdoQueryApplicant = $connect->prepare('INSERT INTO applicant (login_id, applicant_name, applicant_phone, applicant_address, applicant_experience, applicant_skills, applicant_basic_education, applicant_master_edu) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+        $pdoQueryApplicant->bindValue(1, $login_id);
         $pdoQueryApplicant->bindValue(2, $applicant_name);
         $pdoQueryApplicant->bindValue(3, $applicant_phone);
         $pdoQueryApplicant->bindValue(4, $applicant_address);
