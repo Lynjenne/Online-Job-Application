@@ -11,6 +11,12 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/search.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery 3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="js/adminlte.min.js"></script>
     <link href="css/home.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     </head>
@@ -58,7 +64,7 @@
       <strong>Copyright &copy; 2018.</strong> All rights reserved.
     </div>
   </footer>
-  
+
 </div> <!-- jumbotron -->
 </body>
 </html>
