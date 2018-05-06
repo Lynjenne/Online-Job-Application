@@ -52,6 +52,13 @@
             <button type="button" onclick="search()" class="btn btn-lg " style="color: black"><span class="glyphicon glyphicon-search"></span> Search</button>
         </form>
     </div>
+
+  <footer class="main-footer" style="margin-left: 0px;">
+    <div class="text-center">
+      <strong>Copyright &copy; 2018.</strong> All rights reserved.
+    </div>
+  </footer>
+  
 </div> <!-- jumbotron -->
 </body>
 </html>
