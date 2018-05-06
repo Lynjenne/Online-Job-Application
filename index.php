@@ -59,12 +59,13 @@
         </form>
     </div>
 
-  <footer class="main-footer" style="margin-left: 0px;">
+ 
+</div> <!-- jumbotron -->
+ <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
       <strong>Copyright &copy; 2018.</strong> All rights reserved.
     </div>
   </footer>
-
-</div> <!-- jumbotron -->
+  <div class="control-sidebar-bg"></div>
 </body>
 </html>
