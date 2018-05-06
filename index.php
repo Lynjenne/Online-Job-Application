@@ -45,8 +45,11 @@
     </div>
 </nav>
       
- <div class="container">
-        <div class="row">
+
+      
+<div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
+    <div class="jumbotron text-center" id="searchjum">
+       <div class="row">
           <div class="col-md-12 latest-job margin-bottom-20">
             <h1 class="text-center">Latest Jobs</h1>            
             <?php 
@@ -84,14 +87,6 @@
 
           </div>
         </div>
-      </div>
-      
-<div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
-    <div class="jumbotron text-center" id="searchjum">
-        <form class="form-inline" id="homesearch">
-            <input type="text" class="form-control" size="50" placeholder="Enter your search keyword to search a job" name="keyword" id="keyword">
-            <button type="button" onclick="search()" class="btn btn-lg " style="color: black"><span class="glyphicon glyphicon-search"></span> Search</button>
-        </form>
     </div>
 </div> <!-- jumbotron -->
 </body>
