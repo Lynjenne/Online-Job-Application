@@ -25,11 +25,7 @@
              <!--  <li><a href="#contact">Contact Us</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
-             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="applicant_registration.php">Search Jobs</a></li>
-                </ul>
+             <li> <a href="applicant_registration.php">Search Jobs</a>
             </li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
