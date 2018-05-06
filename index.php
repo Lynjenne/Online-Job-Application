@@ -25,6 +25,12 @@
              <!--  <li><a href="#contact">Contact Us</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
+             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="applicant_registration.php">Search Jobs</a></li>
+                </ul>
+            </li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -46,7 +52,7 @@
 </nav>
       
 
-      
+
 <div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
     <div class="jumbotron text-center" id="searchjum">
        <div class="row">
