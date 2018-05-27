@@ -1,5 +1,18 @@
 <?php
-//	$pdo = new PDO('mysql:host=localhost;port=3306;dbname=online_job', 'root', ''); //development
-	$pdo = new PDO('mysql:35.224.141.246;port=3306;dbname=online_job', 'root', 'peromingan'); //production
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// mysql configuration
+$db_host   = "35.224.141.246";
+$db_user   = "root";
+$db_pass   = "peromingan";
+$db_name   = "online_job";
+
+try {
+  //creating new connection object from PDO
+  $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $message) {
+  echo $message->getMessage();
+}
+
 ?>
